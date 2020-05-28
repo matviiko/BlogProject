@@ -9,6 +9,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from "@angular/forms";
 import {NgbAlertModule, NgbModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import { PostComponent } from './shared/components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {NgbAlertModule, NgbModule, NgbPaginationModule} from '@ng-bootstrap/ng-b
     MainLayoutComponent,
     HomePageComponent,
     PostPageComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
