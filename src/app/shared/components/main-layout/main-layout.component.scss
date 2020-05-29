@@ -1,6 +1,8 @@
 .content {
   background: #f9f9fb;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .footer {
@@ -81,4 +83,8 @@ h3 {
   height: 360px;
   width: 100%;
   background: #212429;
+}
+
+.container-btn {
+
 }
