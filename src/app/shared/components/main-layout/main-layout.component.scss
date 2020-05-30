@@ -5,6 +5,11 @@
   justify-content: center;
 }
 
+.logo {
+  height: 15px;
+  margin: 0 10px 3px 0;
+}
+
 .footer {
   background-color: #212429;
   height: 410px;
@@ -14,6 +19,7 @@
 
 .navbar {
   width: 100%;
+  padding: 0 1rem;
 }
 
 ul {

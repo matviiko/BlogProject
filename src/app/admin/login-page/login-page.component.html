@@ -1,1 +1,47 @@
-<p>login-page works!</p>
+<form
+  class="card card-body"
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+>
+  <h2>Enter in Admin Panel</h2>
+  <div
+    class="form-group">
+    <label for="email" >Email</label>
+    <input [ngClass]="{'is-invalid': form.get('email').invalid && form.get('email').touched}"
+           type="email"  id="email" class="form-control" placeholder="Email" formControlName="email">
+    <div
+      class="invalid-feedback"
+      *ngIf="form.get('email').invalid && form.get('email').touched"
+    >
+      <p *ngIf="form.get('email').errors.required"
+      >This place pull
+      </p>
+      <p *ngIf="form.get('email').errors.email"
+      >Please enter Email
+      </p>
+    </div>
+  </div>
+  <div
+    class="form-group">
+    <label for="password">Password</label>
+    <input type="password"
+           [ngClass]="{'is-invalid': form.get('password').invalid && form.get('password').touched}"
+           id="password" class="form-control" placeholder="Password" formControlName="password">
+    <div
+      class="invalid-feedback"
+      *ngIf="form.get('password').invalid && form.get('password').touched"
+    >
+      <p *ngIf="form.get('password').errors.required"
+      >Enter please password
+      </p>
+      <p *ngIf="form.get('password').errors.minlength"
+      >You need write {{form.get('password').errors.minlength.requiredLength}} symbols, you write {{form.get('password').errors.minlength.actualLength}} symbols.
+      </p>
+    </div>
+  </div>
+  <button
+    [disabled]="form.invalid"
+    type="submit"
+    class="btn btn-dark"
+  >Login</button>
+</form>
