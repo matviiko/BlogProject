@@ -1,13 +1,15 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
+import {SharedModule} from "../shared/shared.module";
+
 import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { CreatePageComponent } from './create-page/create-page.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {NgbAlertModule, NgbModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
+import {AuthService} from "./shared/services/auth.service";
 
 @NgModule({
   declarations: [
@@ -21,9 +23,7 @@ import {NgbAlertModule, NgbModule, NgbPaginationModule} from "@ng-bootstrap/ng-b
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
-    NgbPaginationModule,
-    NgbAlertModule,
+    SharedModule,
     RouterModule.forChild([
       {path: '', component: AdminLayoutComponent, children: [
         {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
@@ -37,6 +37,9 @@ import {NgbAlertModule, NgbModule, NgbPaginationModule} from "@ng-bootstrap/ng-b
   exports:[
     RouterModule,
 
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class AdminModule {

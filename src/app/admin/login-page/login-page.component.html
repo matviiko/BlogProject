@@ -4,11 +4,16 @@
   (ngSubmit)="submit()"
 >
   <h2>Enter in Admin Panel</h2>
+
+  <div class="alert alert-danger" *ngIf="authService.error$ | async as error">
+    {{ error }}
+  </div>
+
   <div
     class="form-group">
-    <label for="email" >Email</label>
+    <label for="email">Email</label>
     <input [ngClass]="{'is-invalid': form.get('email').invalid && form.get('email').touched}"
-           type="email"  id="email" class="form-control" placeholder="Email" formControlName="email">
+           type="email" id="email" class="form-control" placeholder="Email" formControlName="email">
     <div
       class="invalid-feedback"
       *ngIf="form.get('email').invalid && form.get('email').touched"
@@ -35,13 +40,15 @@
       >Enter please password
       </p>
       <p *ngIf="form.get('password').errors.minlength"
-      >You need write {{form.get('password').errors.minlength.requiredLength}} symbols, you write {{form.get('password').errors.minlength.actualLength}} symbols.
+      >You need write {{form.get('password').errors.minlength.requiredLength}} symbols, you
+        write {{form.get('password').errors.minlength.actualLength}} symbols.
       </p>
     </div>
   </div>
   <button
-    [disabled]="form.invalid"
+    [disabled]="form.invalid || submitted"
     type="submit"
     class="btn btn-dark"
-  >Login</button>
+  >Login
+  </button>
 </form>
