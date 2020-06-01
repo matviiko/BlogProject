@@ -9,6 +9,10 @@
     {{ error }}
   </div>
 
+  <div class="alert alert-info text-center" *ngIf="message">
+    {{ message }}
+  </div>
+
   <div
     class="form-group">
     <label for="email">Email</label>
