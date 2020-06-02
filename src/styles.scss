@@ -2,6 +2,8 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.snow.css";
 
 @import "assets/font-hind/font-hind.css";
 
