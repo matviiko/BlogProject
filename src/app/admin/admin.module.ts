@@ -42,7 +42,6 @@ import {AuthGuard} from './shared/services/auth.guard';
 
   ],
   providers: [
-    AuthService,
     AuthGuard
   ]
 })
