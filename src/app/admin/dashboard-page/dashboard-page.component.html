@@ -1,1 +1,43 @@
-<p>dashboard-page works!</p>
+<div class="card-body"
+*ngIf="posts.length; else loading"
+>
+  <table class="table table-striped ">
+    <thead>
+    <tr class="table-danger" >
+      <th scope="col">#</th>
+      <th scope="col">AUTHOR</th>
+      <th scope="col">POST NAME</th>
+      <th scope="col">DATE</th>
+      <th scope="col">ACTION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let post of posts; let idx = index" >
+      <td>{{ idx + 1 }}</td>
+      <td>{{ post.author }}</td>
+      <td>{{ post.title }}</td>
+      <td>{{ post.date | date:'medium' }}</td>
+      <td>
+        <button
+          class="btn btn-dark"
+          [routerLink]="['/admin', 'post', post.id, 'edit']"
+        >
+          Edit Post
+        </button>
+        <button (click)="remove(post.id)" class="btn btn-danger" >
+          Delete
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-template>
+
