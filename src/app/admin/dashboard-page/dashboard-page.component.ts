@@ -12,6 +12,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   posts: Post[] = [];
   postsSub: Subscription;
+  searchStr = '';
 
   constructor(private postsService: PostsService) {
   }

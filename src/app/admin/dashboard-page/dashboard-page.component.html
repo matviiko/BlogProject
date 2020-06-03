@@ -1,9 +1,16 @@
 <div class="card-body"
-*ngIf="posts.length; else loading"
+     *ngIf="posts.length; else loading"
 >
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">POST NAME</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Search post..." [(ngModel)]="searchStr">
+  </div>
+
   <table class="table table-striped ">
     <thead>
-    <tr class="table-danger" >
+    <tr class="table-danger">
       <th scope="col">#</th>
       <th scope="col">AUTHOR</th>
       <th scope="col">POST NAME</th>
@@ -12,7 +19,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let post of posts; let idx = index" >
+    <tr *ngFor="let post of posts | searchPosts: searchStr; let idx = index">
       <td>{{ idx + 1 }}</td>
       <td>{{ post.author }}</td>
       <td>{{ post.title }}</td>
@@ -24,7 +31,7 @@
         >
           Edit Post
         </button>
-        <button (click)="remove(post.id)" class="btn btn-danger" >
+        <button (click)="remove(post.id)" class="btn btn-danger">
           Delete
         </button>
       </td>
