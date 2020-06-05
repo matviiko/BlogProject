@@ -12,6 +12,8 @@ import {EditPageComponent} from './edit-page/edit-page.component';
 import {AuthGuard} from './shared/services/auth.guard';
 import {SearchPipe} from './shared/pipes/search.pipe';
 import {SearchAuthorPipe} from './shared/pipes/search-author.pipe';
+import { AlertComponent } from './shared/components/alert/alert.component';
+import {AlertService} from './shared/services/alert.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {SearchAuthorPipe} from './shared/pipes/search-author.pipe';
     CreatePageComponent,
     EditPageComponent,
     SearchPipe,
-    SearchAuthorPipe
+    SearchAuthorPipe,
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +48,8 @@ import {SearchAuthorPipe} from './shared/pipes/search-author.pipe';
 
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    AlertService
   ]
 })
 export class AdminModule {
