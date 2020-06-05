@@ -1,7 +1,9 @@
 <div
   *ngIf="form; else loading"
 >
-  <form [formGroup]="form" (ngSubmit)="submit()">
+  <form
+    class="card card-body"
+    [formGroup]="form" (ngSubmit)="submit()">
 
     <div
       class="form-group">
@@ -27,7 +29,7 @@
 
     <button
       type="submit"
-      class="btn btn-primary"
+      class="btn btn-primary "
       [disabled]="form.invalid || submitted"
     >Edit
     </button>
