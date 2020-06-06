@@ -38,7 +38,7 @@ export class PostsService {
       );
   }
 
-  getByID(id: string): Observable<Post> {
+  getPostByID(id: string): Observable<Post> {
     return this.http.get<Post>(`${environment.fbDbUrl}/posts/${id}.json`)
       .pipe(
         map((post: Post) => {

@@ -6,25 +6,25 @@
     <a href="#">Travelling</a>
   </div>
   <div class="post-title" >
-    <h1>{{'be the one to stand out in the crowed' | uppercase}}</h1>
+    <h1>{{ post.title | uppercase}}</h1>
   </div>
   <div class="info">
     <strong>
       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" class="svg-icons" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg>
-      {{'Author' | uppercase}}
+      {{ post.author | uppercase}}
     </strong>
     <small>
       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-alt" class="svg-icons" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"></path></svg>
-      14.02.2020
+      {{ post.date | date:'medium' }}
     </small>
   </div>
   <div class="post-text">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam at ex harum inventore officiis. Assumenda ipsam maxime mollitia quibusdam unde vero voluptate. Ad beatae deleniti dolores earum excepturi fugiat labore libero non nulla numquam officia, placeat quidem quod sapiente sequi, veniam voluptatem? Blanditiis consequatur debitis dicta dolore, eum hic nostrum numquam voluptate. Molestias sunt veniam voluptatem! Consequuntur et eveniet incidunt iusto minus. Aliquid aspernatur autem corporis deserunt dolor doloribus earum, in inventore maiores minus natus nesciunt quisquam voluptatum. Accusantium blanditiis debitis dolores, fugiat mollitia officiis repudiandae similique soluta. Animi eaque error eum exercitationem harum id natus numquam officia quaerat rerum?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, reprehenderit.</p>
   </div>
   <div class="post-btn" >
     <button
       class="btn"
-      [routerLink]="['/post', 123456]"
+      [routerLink]="['/post', post.id]"
     >READ MORE</button>
   </div>
   <div class="post-footer" >
