@@ -12,6 +12,8 @@ export interface fbAuthResponse {
 export interface Post {
   id?: string;
   title: string;
+  img?: string;
+  aboutPost?: string;
   text: string;
   author: string;
   date: Date
