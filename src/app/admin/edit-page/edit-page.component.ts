@@ -35,6 +35,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
       this.post = post;
       this.form = new FormGroup({
         title: new FormControl(post.title, Validators.required),
+        aboutPost: new FormControl(post.aboutPost, Validators.required),
         text: new FormControl(post.text, Validators.required)
       });
     });
@@ -50,10 +51,11 @@ export class EditPageComponent implements OnInit, OnDestroy {
     this.updateSub = this.postsService.update({
       ...this.post,
       text: this.form.value.text,
+      aboutPost: this.form.value.aboutPost,
       title: this.form.value.title,
     }).subscribe(() => {
       this.submitted = false;
-      this.alertService.success('Post was deleted!');
+      this.alertService.success('Post was changed!');
     });
   }
 
