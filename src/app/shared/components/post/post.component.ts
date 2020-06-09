@@ -10,9 +10,14 @@ export class PostComponent implements OnInit {
 
   @Input() post: Post
 
+  imgPost = './assets/image/image-analysis.png'
+
   constructor() { }
 
   ngOnInit() {
+    if (this.post.img) {
+      this.imgPost = this.post.img
+    }
   }
 
 }

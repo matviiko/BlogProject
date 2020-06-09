@@ -16,6 +16,28 @@
     </div>
   </div>
 
+  <div
+    class="form-group">
+    <label for="img">Post image:</label>
+    <input [ngClass]="{'is-invalid': form.get('img').invalid && form.get('img').touched}"
+           type="text" id="img" class="form-control" placeholder="Url image for post" formControlName="img">
+    <div
+      class="invalid-feedback"
+      *ngIf="form.get('img').invalid && form.get('img').touched"
+    >
+      <p *ngIf="form.get('img').errors.required"
+      >Enter image url post
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <label>About post:</label>
+    <div class="form-group" >
+      <quill-editor formControlName="aboutPost"></quill-editor>
+    </div>
+  </div>
+
   <div>
     <label>Post content:</label>
       <div class="form-group" >
