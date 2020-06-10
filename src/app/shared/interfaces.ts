@@ -22,3 +22,9 @@ export interface Post {
 export interface fbCreateResponse {
   name: string;
 }
+
+export interface Category {
+  id?: string;
+  name: string;
+  user?: string;
+}

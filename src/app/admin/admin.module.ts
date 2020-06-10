@@ -12,8 +12,9 @@ import {EditPageComponent} from './edit-page/edit-page.component';
 import {AuthGuard} from './shared/services/auth.guard';
 import {SearchPipe} from './shared/pipes/search.pipe';
 import {SearchAuthorPipe} from './shared/pipes/search-author.pipe';
-import { AlertComponent } from './shared/components/alert/alert.component';
+import {AlertComponent} from './shared/components/alert/alert.component';
 import {AlertService} from './shared/services/alert.service';
+import {CategoriesPageComponent} from './categories-page/categories-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {AlertService} from './shared/services/alert.service';
     EditPageComponent,
     SearchPipe,
     SearchAuthorPipe,
-    AlertComponent
+    AlertComponent,
+    CategoriesPageComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +39,7 @@ import {AlertService} from './shared/services/alert.service';
           {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
           {path: 'login', component: LoginPageComponent},
           {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
+          {path: 'categories', component: CategoriesPageComponent, canActivate: [AuthGuard]},
           {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},
           {path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]},
         ]

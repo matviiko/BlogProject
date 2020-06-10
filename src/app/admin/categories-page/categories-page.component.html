@@ -1,0 +1,62 @@
+<div class="card-body">
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="input-group mb-3">
+      <input
+        [ngClass]="{'is-invalid': form.get('name').invalid && form.get('name').touched}"
+        type="text" class="form-control" placeholder="CATEGORY NAME" formControlName="name">
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-primary"
+          type="submit"
+          [disabled]="form.invalid"
+        >Create Category</button>
+      </div>
+
+      <div
+        class="invalid-feedback"
+        *ngIf="form.get('name').invalid && form.get('name').touched"
+      >
+        <p *ngIf="form.get('name').errors.required"
+        >Enter please category name
+        </p>
+        <p *ngIf="form.get('name').errors.minlength"
+        >You need write {{form.get('name').errors.maxlength.requiredLength}} symbols, you
+          write {{form.get('name').errors.maxlength.actualLength}} symbols.
+        </p>
+      </div>
+    </div>
+  </form>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">CATEGORY NAME</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Search category..." [(ngModel)]="searchStr">
+  </div>
+
+  <table class="table table-striped ">
+    <thead>
+    <tr class="table-success">
+      <th scope="col">#</th>
+      <th scope="col">CATEGORY NAME</th>
+      <th scope="col">ACTION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center loader">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-template>

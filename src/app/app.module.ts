@@ -9,6 +9,7 @@ import { MainLayoutComponent } from './shared/components/main-layout/main-layout
 import { PostPageComponent } from './post-page/post-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PostComponent } from './shared/components/post/post.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './shared/auth.interceptor';
 
@@ -27,6 +28,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     HomePageComponent,
     PostPageComponent,
     PostComponent,
+    CategoryPageComponent,
   ],
   imports: [
     BrowserModule,
