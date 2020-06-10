@@ -1,4 +1,6 @@
-<div class="card-body">
+<div class="card-body"
+    *ngIf="categories.length; else loading"
+>
 
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="input-group mb-3">
@@ -20,9 +22,9 @@
         <p *ngIf="form.get('name').errors.required"
         >Enter please category name
         </p>
-        <p *ngIf="form.get('name').errors.minlength"
+        <p *ngIf="form.get('name').errors.maxlength"
         >You need write {{form.get('name').errors.maxlength.requiredLength}} symbols, you
-          write {{form.get('name').errors.maxlength.actualLength}} symbols.
+          write {{form.get('name').errors.maxlength.actualLength}} symbols
         </p>
       </div>
     </div>
@@ -40,14 +42,22 @@
     <tr class="table-success">
       <th scope="col">#</th>
       <th scope="col">CATEGORY NAME</th>
+      <th scope="col">DATE</th>
       <th scope="col">ACTION</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr
+    *ngFor="let category of categories; let idx = index"
+    >
+      <td>{{ idx + 1 }}</td>
+      <td>{{ category.name }}</td>
+      <td>{{ category.date | date: 'medium' }}</td>
+      <td>
+        <button (click)="removeCategory(category.id)" class="btn btn-danger action">
+          Delete
+        </button>
+      </td>
     </tr>
     </tbody>
   </table>

@@ -16,7 +16,7 @@ export interface Post {
   aboutPost?: string;
   text: string;
   author: string;
-  date: Date
+  date: Date;
 }
 
 export interface fbCreateResponse {
@@ -27,4 +27,5 @@ export interface Category {
   id?: string;
   name: string;
   user?: string;
+  date: Date;
 }
