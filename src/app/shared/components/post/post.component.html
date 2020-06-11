@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="category" >
-    <a href="#">Travelling</a>
+    <a *ngFor="let category of post.categories" href="#">{{ category | uppercase }}</a>
   </div>
   <div class="post-title" >
     <h1>{{ post.title | uppercase}}</h1>

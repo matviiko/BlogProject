@@ -14,6 +14,7 @@
       <th scope="col">#</th>
       <th scope="col">AUTHOR</th>
       <th scope="col">POST NAME</th>
+      <th scope="col">CATEGORY</th>
       <th scope="col">DATE</th>
       <th scope="col">ACTION</th>
     </tr>
@@ -23,6 +24,7 @@
       <td>{{ idx + 1 }}</td>
       <td>{{ post.author }}</td>
       <td>{{ post.title }}</td>
+      <td>{{ post.categories.join(' ') }}</td>
       <td>{{ post.date | date:'medium' }}</td>
       <td>
         <button

@@ -54,9 +54,11 @@
       <td>{{ category.name }}</td>
       <td>{{ category.date | date: 'medium' }}</td>
       <td>
-        <button (click)="removeCategory(category.id)" class="btn btn-danger action">
+        <button (click)="removeCategory(category.id)" class="btn btn-outline-danger action">
           Delete
         </button>
+
+
       </td>
     </tr>
     </tbody>

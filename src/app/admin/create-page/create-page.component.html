@@ -31,6 +31,16 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <select multiple class="form-control" id="category" formControlName="categories">
+      <option
+        *ngFor="let category of categories;"
+        value="{{ category.name }}"
+      >{{ category.name }}</option>
+    </select>
+  </div>
+
   <div>
     <label>About post:</label>
     <div class="form-group" >
