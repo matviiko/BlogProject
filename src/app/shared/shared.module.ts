@@ -1,7 +1,8 @@
-import {NgModule} from "@angular/core";
-import {HttpClientModule} from "@angular/common/http";
-import {NgbAlertModule, NgbModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+import {NgbAlertModule, NgbModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import {QuillModule} from 'ngx-quill';
+import {FilterCategoryPipe} from './pipes/filter-category.pipe';
 
 @NgModule({
   imports: [
@@ -13,7 +14,11 @@ import {QuillModule} from 'ngx-quill';
   ],
   exports: [
     HttpClientModule,
-    QuillModule
+    QuillModule,
+    FilterCategoryPipe
+  ],
+  declarations: [
+    FilterCategoryPipe
   ]
 })
 export class SharedModule {

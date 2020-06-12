@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {PostsService} from '../shared/post.service';
+import {Observable} from 'rxjs';
+import {Post} from '../shared/interfaces';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-category-page',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryPageComponent implements OnInit {
 
-  constructor() { }
+  posts$: Observable<Post[]>;
+  categoryId = '';
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+    private postsService: PostsService
+  ) {
+  }
+
+  ngOnInit() {
+    this.categoryId = this.route.snapshot.params['id'];
+
+    this.posts$ = this.postsService.getAll();
   }
 
 }
