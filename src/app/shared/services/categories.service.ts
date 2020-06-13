@@ -43,7 +43,24 @@ export class CategoriesService {
       );
   }
 
+  getCategoryById(id: string): Observable<Category> {
+    return this.http.get<Category>(`${environment.fbDbUrl}/categories/${id}.json`)
+      .pipe(
+        map((category: Category) => {
+          return {
+            ...category,
+            id: id,
+            date: new Date(category.date)
+          };
+        })
+      );
+  }
+
   remove(id: string): Observable<void> {
     return this.http.delete<void>(`${environment.fbDbUrl}/categories/${id}.json`);
+  }
+
+  update(categories: Category): Observable<Category> {
+    return this.http.patch<Category>(`${environment.fbDbUrl}/categories/${categories.id}.json`, categories)
   }
 }
