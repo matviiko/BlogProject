@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PostsService} from '../../shared/post.service';
-import {Post} from '../../shared/interfaces';
-import {Subscription} from 'rxjs';
+import {Category, Post} from '../../shared/interfaces';
+import {forkJoin, Subscription} from 'rxjs';
 import {AlertService} from '../shared/services/alert.service';
+import {CategoriesService} from '../../shared/services/categories.service';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -12,20 +13,34 @@ import {AlertService} from '../shared/services/alert.service';
 export class DashboardPageComponent implements OnInit, OnDestroy {
 
   posts: Post[] = [];
-  postsSub: Subscription;
+  categories: Category[] = [];
+  joinSub: Subscription;
   searchStr = '';
   deleteSub: Subscription;
 
   constructor(
     private postsService: PostsService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private categoriesService: CategoriesService
   ) {
   }
 
   ngOnInit() {
-    this.postsSub = this.postsService.getAll().subscribe(posts => {
+    this.joinSub = forkJoin(
+      this.postsService.getAll(),
+      this.categoriesService.getAllCategories()
+    ).subscribe(([posts, categories]) => {
       this.posts = posts;
+      this.posts.forEach(post => {
+        const categoriesList = [];
+        post.categories.forEach(id => {
+          const category = categories.find(category => category.id === id);
+          categoriesList.push(category);
+        });
+        post.categories = categoriesList;
+      });
     });
+
 
   }
 
@@ -37,13 +52,14 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.postsSub) {
-      this.postsSub.unsubscribe();
+    if (this.joinSub) {
+      this.joinSub.unsubscribe();
     }
 
     if (this.deleteSub) {
       this.deleteSub.unsubscribe();
     }
+
   }
 
 }

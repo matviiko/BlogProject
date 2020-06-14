@@ -12,7 +12,7 @@ export interface fbAuthResponse {
 export interface Post {
   id?: string;
   title: string;
-  categories: string[];
+  categories: Array<string>;
   img?: string;
   aboutPost?: string;
   text: string;
