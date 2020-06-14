@@ -40,8 +40,6 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
         post.categories = categoriesList;
       });
     });
-
-
   }
 
   remove(id: string) {

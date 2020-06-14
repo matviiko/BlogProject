@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="category" >
-    <a *ngFor="let category of post.categories" [routerLink]="['category', category]" >{{ category | uppercase }}</a>
+    <a *ngFor="let category of post.categories" [routerLink]="['category', category.id]" >{{ category.name | uppercase }}</a>
   </div>
   <div class="post-title" >
     <h1>{{ post.title | uppercase}}</h1>

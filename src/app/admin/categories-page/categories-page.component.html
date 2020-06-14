@@ -37,6 +37,37 @@
     <input type="text" class="form-control" placeholder="Search category..." [(ngModel)]="searchStr">
   </div>
 
+  <div *ngIf="toggleEdit" >
+    <form [formGroup]="editForm" (ngSubmit)="submitEditCategory()">
+      <div class="input-group mb-3">
+
+        <input
+          [ngClass]="{'is-invalid': editForm.get('nameEditCategory').invalid && editForm.get('nameEditCategory').touched}"
+          type="text" class="form-control" id="editCategory" placeholder="CATEGORY NAME" formControlName="nameEditCategory">
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-warning"
+            type="submit"
+            [disabled]="editForm.invalid"
+          >Edit Category</button>
+        </div>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="editForm.get('nameEditCategory').invalid && editForm.get('nameEditCategory').touched"
+        >
+          <p *ngIf="editForm.get('nameEditCategory').errors.required"
+          >Enter please category name
+          </p>
+          <p *ngIf="editForm.get('nameEditCategory').errors.maxlength"
+          >You need write {{editForm.get('nameEditCategory').errors.maxlength.requiredLength}} symbols, you
+            write {{editForm.get('nameEditCategory').errors.maxlength.actualLength}} symbols
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+
   <table class="table table-striped ">
     <thead>
     <tr class="table-success">
@@ -53,12 +84,14 @@
       <td>{{ idx + 1 }}</td>
       <td>{{ category.name }}</td>
       <td>{{ category.date | date: 'medium' }}</td>
-      <td>
+      <td class="w150">
         <button (click)="removeCategory(category.id)" class="btn btn-outline-danger action">
           Delete
         </button>
 
-
+        <button (click)="editCategory(category.id)" class="btn btn-outline-primary action">
+          Edit
+        </button>
       </td>
     </tr>
     </tbody>

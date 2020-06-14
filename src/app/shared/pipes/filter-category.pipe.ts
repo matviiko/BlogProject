@@ -11,7 +11,7 @@ export class FilterCategoryPipe implements PipeTransform {
       return posts;
     }
     return posts.filter(post => {
-      return post.categories.includes(search.toLowerCase());
+      return post.categories.includes(search);
     });
   }
 

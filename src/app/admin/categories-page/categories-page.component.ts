@@ -13,11 +13,15 @@ import {Subscription} from 'rxjs';
 export class CategoriesPageComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
-
+  editForm: FormGroup;
   categories: Category[] = [];
   categoriesSub: Subscription;
   searchStr = '';
   deleteSub: Subscription;
+  categoryBeforeEdit: Category;
+  toggleEdit = false;
+  updateSub: Subscription;
+  editSub: Subscription;
 
   constructor(
     private categoriesService: CategoriesService,
@@ -59,6 +63,29 @@ export class CategoriesPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  editCategory(id: string) {
+    this.toggleEdit = true;
+
+    this.editSub = this.categoriesService.getCategoryById(id)
+      .subscribe((category: Category) => {
+        this.categoryBeforeEdit = category;
+        this.editForm = new FormGroup({
+          nameEditCategory: new FormControl(category.name, [Validators.required, Validators.maxLength(15)])
+        });
+      });
+  }
+
+  submitEditCategory() {
+
+    this.updateSub = this.categoriesService.update({
+      ...this.categoryBeforeEdit,
+      name: this.editForm.value.nameEditCategory
+    }).subscribe(() => {
+      this.alertService.success('Category was changed!');
+      this.toggleEdit = false;
+    });
+  }
+
   ngOnDestroy() {
     if (this.categoriesSub) {
       this.categoriesSub.unsubscribe();
@@ -66,6 +93,14 @@ export class CategoriesPageComponent implements OnInit, OnDestroy {
 
     if (this.deleteSub) {
       this.deleteSub.unsubscribe();
+    }
+
+    if (this.updateSub) {
+      this.updateSub.unsubscribe();
+    }
+
+    if (this.editSub) {
+      this.editSub.unsubscribe();
     }
   }
 }
