@@ -1,0 +1,41 @@
+<div
+  *ngIf="editForm; else loading"
+>
+
+  <form class="form" [formGroup]="editForm" (ngSubmit)="submitEditCategory()">
+    <label for="editCategory">Edit Category Name</label>
+    <div class="input-group mb-3">
+      <input
+        [ngClass]="{'is-invalid': editForm.get('nameEditCategory').invalid && editForm.get('nameEditCategory').touched}"
+        type="text" class="form-control" id="editCategory" placeholder="CATEGORY NAME" formControlName="nameEditCategory">
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-warning"
+          type="submit"
+          [disabled]="editForm.invalid"
+        >Edit Category</button>
+      </div>
+
+      <div
+        class="invalid-feedback"
+        *ngIf="editForm.get('nameEditCategory').invalid && editForm.get('nameEditCategory').touched"
+      >
+        <p *ngIf="editForm.get('nameEditCategory').errors.required"
+        >Enter please category name
+        </p>
+        <p *ngIf="editForm.get('nameEditCategory').errors.maxlength"
+        >You need write {{editForm.get('nameEditCategory').errors.maxlength.requiredLength}} symbols, you
+          write {{editForm.get('nameEditCategory').errors.maxlength.actualLength}} symbols
+        </p>
+      </div>
+    </div>
+  </form>
+
+</div>
+<ng-template #loading>
+  <div class="d-flex justify-content-center loader">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-template>

@@ -15,6 +15,7 @@ import {SearchAuthorPipe} from './shared/pipes/search-author.pipe';
 import {AlertComponent} from './shared/components/alert/alert.component';
 import {AlertService} from './shared/services/alert.service';
 import {CategoriesPageComponent} from './categories-page/categories-page.component';
+import { EditCategoryComponent } from './categories-page/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {CategoriesPageComponent} from './categories-page/categories-page.compone
     SearchPipe,
     SearchAuthorPipe,
     AlertComponent,
-    CategoriesPageComponent
+    CategoriesPageComponent,
+    EditCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,7 @@ import {CategoriesPageComponent} from './categories-page/categories-page.compone
           {path: 'login', component: LoginPageComponent},
           {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
           {path: 'categories', component: CategoriesPageComponent, canActivate: [AuthGuard]},
+          {path: 'category/:id/edit', component: EditCategoryComponent, canActivate: [AuthGuard]},
           {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},
           {path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]},
         ]
