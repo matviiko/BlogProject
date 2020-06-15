@@ -12,6 +12,7 @@ import { PostComponent } from './shared/components/post/post.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './shared/auth.interceptor';
+import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -30,12 +31,13 @@ const INTERCEPTOR_PROVIDER: Provider = {
     PostComponent,
     CategoryPageComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    SharedModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        SharedModule,
+        NgbCarouselModule
+    ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })

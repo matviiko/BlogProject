@@ -1,21 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
+import {Component, OnInit} from '@angular/core';
+import {PostsService} from '../../post.service';
+import {Post} from '../../interfaces';
 
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],
-  providers: [NgbRatingConfig]
+  providers: []
 
 })
 export class MainLayoutComponent implements OnInit {
 
-  constructor(config: NgbRatingConfig) {
-    config.max = 5;
-    config.readonly = true;
+  posts: Array<Post> = [];
+
+  constructor(
+    private postsService: PostsService
+  ) {
+
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.postsService.getAll().subscribe(posts => {
+      this.posts = posts;
+    });
   }
 
 }

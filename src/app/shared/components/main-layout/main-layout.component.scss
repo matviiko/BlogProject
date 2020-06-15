@@ -18,6 +18,18 @@
   clear: both;
 }
 
+.container-carousel {
+  background: linear-gradient(to top, #f9f9fb 50%, #343a40 50%);
+  padding: 0 30px;
+}
+
+.container-img{
+  .img-slide {
+    width: 100%;
+    height: 450px;
+  }
+}
+
 .navbar {
   width: 100%;
   padding: 0 1rem;
