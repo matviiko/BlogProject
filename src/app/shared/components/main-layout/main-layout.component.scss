@@ -20,7 +20,7 @@
 
 .container-carousel {
   background: linear-gradient(to top, #f9f9fb 50%, #343a40 50%);
-  padding: 0 30px;
+  padding: 0 30px 15px 30px;
 }
 
 .container-img{
@@ -105,5 +105,37 @@ h3 {
 }
 
 .container-btn {
+}
 
+.newletter {
+  margin: 25px 15px 0 15px ;
+}
+
+.input-group {
+  .h4{
+    height: 45px;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    span {
+      font-family: Montserrat Bold, sans-serif;
+      font-size: 20px;
+    }
+  }
+  input {
+    margin: 0 10px;
+    height: 45px;
+    background: #ffffff;
+  }
+}
+
+.subscribe {
+  font-family: "Hind Medium", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  background: #212121;
+  height: 45px;
+  padding: 0 40px;
+  margin: 0 10px;
 }
