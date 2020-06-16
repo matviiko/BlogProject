@@ -60,7 +60,7 @@ export class CategoriesService {
     return this.http.delete<void>(`${environment.fbDbUrl}/categories/${id}.json`);
   }
 
-  update(categories: Category): Observable<Category> {
-    return this.http.patch<Category>(`${environment.fbDbUrl}/categories/${categories.id}.json`, categories)
+  update(category: Category): Observable<Category> {
+    return this.http.patch<Category>(`${environment.fbDbUrl}/categories/${category.id}.json`, category)
   }
 }
