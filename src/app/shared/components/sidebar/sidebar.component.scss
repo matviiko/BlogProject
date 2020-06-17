@@ -1,0 +1,109 @@
+.sidebar {
+  margin: 40px 15px;
+  background: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+
+.search {
+  padding: 40px 30px;
+  input {
+    background: #f9f9fb;
+    border: none;
+    height: 40px;
+    font-size: 15px;
+    font-family: Hind Light, sans-serif;
+    color: #212121;
+  }
+  button {
+    height: 40px;
+    width: 40px;
+    background: #212121;
+    padding: 0;
+    svg {
+      height: 20px;
+      width: 20px;
+      color: #ffffff;
+    }
+  }
+}
+
+.sidebar-categories {
+  h4 {
+    font-family: Montserrat Bold, sans-serif;
+    font-size: 20px;
+    color: #212121;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px 0;
+  }
+  ul {
+    li {
+      list-style-type: none;
+      margin-right: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: #f7f7f7 1px solid;
+      border-top: #f7f7f7 1px solid;
+      padding: 15px 0;
+      span {
+        font-family: Hind medium, sans-serif;
+        font-size: 16px;
+        color: #212121;
+        a {
+          text-decoration: none;
+          color: #212121;
+        }
+      }
+    }
+  }
+}
+
+.sidebar-posts {
+  h4 {
+    font-family: Montserrat Bold, sans-serif;
+    font-size: 20px;
+    color: #212121;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px 0;
+  }
+}
+
+.sidebar-post {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 30px;
+  img {
+    height: 55px;
+    width: 75px;
+  }
+  div {
+    margin-left: 5px;
+    .title {
+      font-family: Montserrat Regular, sans-serif;
+      font-size: 16px;
+      color: #212121;
+      white-space: pre-wrap;
+      height: 40px;
+      margin: 0 0 0 0;
+      padding: 0;
+      line-height: 110%;
+    }
+    .sidebar-post-footer {
+      display: flex;
+      flex-direction: row;
+      span {
+        font-family: Hind Light, sans-serif;
+        font-size: 14px;
+        color: #999999;
+        margin-right: 20px;
+      }
+    }
+  }
+}
