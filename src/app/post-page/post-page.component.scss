@@ -14,7 +14,8 @@
   margin: 40px 0;
   .img-icon {
     position: absolute;
-    left: 480px; bottom: -18px;
+    left: 480px;
+    bottom: -18px;
     background: #212121;
     height: 35px;
     width: 40px;
@@ -36,12 +37,12 @@
   justify-content: center;
   a {
     text-decoration: none;
-    font-family: Hind , sans-serif;
+    font-family: Hind, sans-serif;
     font-size: 16px;
     color: #999999;
     align-items: center;
     margin: 10px 0;
-  };
+  }
 }
 
 .post-title {
@@ -87,7 +88,6 @@
     font-size: 16px;
     text-align: center;
     color: #464646;
-
   }
 }
 
@@ -130,7 +130,7 @@
     }
   }
   .post-rating {
-    small{
+    small {
       font-family: Hind Regular, sans-serif;
       font-size: 16px;
       color: #999999;
@@ -147,5 +147,36 @@
         margin: 0 15px;
       }
     }
+  }
+}
+
+.container-btn {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: row;
+  .btn-post {
+    height: 100px;
+    width: 470px;
+    margin: 0 10px;
+    background: #3a3c49;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-family: Hind medium, sans-serif;
+      font-size: 14px;
+    }
+    svg {
+      width: 30px;
+      height: 15px;
+      color: #ffffff;
+    }
+  }
+  .btn-prev {
+  }
+  .btn-next {
   }
 }

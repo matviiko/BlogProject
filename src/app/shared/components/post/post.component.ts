@@ -1,23 +1,21 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Post} from '../../interfaces';
+import { Component, Input, OnInit } from "@angular/core";
+import { Post } from "../../interfaces";
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  selector: "app-post",
+  templateUrl: "./post.component.html",
+  styleUrls: ["./post.component.scss"],
 })
 export class PostComponent implements OnInit {
+  @Input() post: Post;
 
-  @Input() post: Post
+  imgPost = "./assets/image/image-analysis.png";
 
-  imgPost = './assets/image/image-analysis.png'
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     if (this.post.img) {
-      this.imgPost = this.post.img
+      this.imgPost = this.post.img;
     }
   }
-
 }

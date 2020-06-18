@@ -1,55 +1,52 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {fbCreateResponse, Post} from './interfaces';
-import {environment} from '../../environments/environment';
-import {map} from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { fbCreateResponse, Post } from "./interfaces";
+import { environment } from "../../environments/environment";
+import { map } from "rxjs/operators";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: "root" })
 export class PostsService {
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   create(post: Post): Observable<Post> {
-    return this.http.post(`${environment.fbDbUrl}/posts.json`, post)// чомусь тип пост не приймав після оператора мап
+    return this.http
+      .post(`${environment.fbDbUrl}/posts.json`, post) // чомусь тип пост не приймав після оператора мап
       .pipe(
         map((response: fbCreateResponse) => {
           return {
             ...post,
             id: response.name,
-            date: new Date(post.date)
+            date: new Date(post.date),
           };
         })
       );
   }
 
   getAll(): Observable<Post[]> {
-    return this.http.get(`${environment.fbDbUrl}/posts.json`)
-      .pipe(
-        map((response: { [key: string]: any }) => {
-          return Object
-            .keys(response)
-            .map(key => ({
-              ...response[key],
-              id: key,
-              date: new Date(response[key].date)
-            }))
-            .reverse();
-        })
-      );
+    return this.http.get(`${environment.fbDbUrl}/posts.json`).pipe(
+      map((response: { [key: string]: any }) => {
+        return Object.keys(response)
+          .map(key => ({
+            ...response[key],
+            id: key,
+            date: new Date(response[key].date),
+          }))
+          .reverse();
+      })
+    );
   }
 
   getPostByID(id: string): Observable<Post> {
-    return this.http.get<Post>(`${environment.fbDbUrl}/posts/${id}.json`)
-      .pipe(
-        map((post: Post) => {
-          return {
-            ...post,
-            id: id,
-            date: new Date(post.date)
-          };
-        })
-      );
+    return this.http.get<Post>(`${environment.fbDbUrl}/posts/${id}.json`).pipe(
+      map((post: Post) => {
+        return {
+          ...post,
+          id: id,
+          date: new Date(post.date),
+        };
+      })
+    );
   }
 
   remove(id: string): Observable<void> {
@@ -57,7 +54,6 @@ export class PostsService {
   }
 
   update(post: Post): Observable<Post> {
-    return this.http.patch<Post>(`${environment.fbDbUrl}/posts/${post.id}.json`, post)
+    return this.http.patch<Post>(`${environment.fbDbUrl}/posts/${post.id}.json`, post);
   }
-
 }

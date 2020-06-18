@@ -1,22 +1,20 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {AlertService} from '../../services/alert.service';
-import {Subscription} from 'rxjs';
+import { Component, Input, OnDestroy, OnInit } from "@angular/core";
+import { AlertService } from "../../services/alert.service";
+import { Subscription } from "rxjs";
 
 @Component({
-  selector: 'app-alert',
-  templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.scss']
+  selector: "app-alert",
+  templateUrl: "./alert.component.html",
+  styleUrls: ["./alert.component.scss"],
 })
 export class AlertComponent implements OnInit, OnDestroy {
-
   @Input() delay = 5000;
 
   public text: string;
-  public type = 'success';
+  public type = "success";
   alertSub: Subscription;
 
-  constructor(private alertService: AlertService) {
-  }
+  constructor(private alertService: AlertService) {}
 
   ngOnInit() {
     this.alertSub = this.alertService.alert$.subscribe(alert => {
@@ -24,16 +22,15 @@ export class AlertComponent implements OnInit, OnDestroy {
       this.type = alert.type;
 
       const timeout = setTimeout(() => {
-        clearTimeout(timeout)
-        this.text = ''
-      }, this.delay)
+        clearTimeout(timeout);
+        this.text = "";
+      }, this.delay);
     });
   }
 
   ngOnDestroy() {
-    if(this.alertSub) {
-      this.alertSub.unsubscribe()
+    if (this.alertSub) {
+      this.alertSub.unsubscribe();
     }
   }
-
 }
