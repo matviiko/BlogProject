@@ -1,15 +1,15 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Category, Post } from "../../shared/interfaces";
-import { PostsService } from "../../shared/post.service";
-import { AlertService } from "../shared/services/alert.service";
-import { CategoriesService } from "../../shared/services/categories.service";
-import { Subscription } from "rxjs";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Category, Post } from '../../shared/interfaces';
+import { PostsService } from '../../shared/post.service';
+import { AlertService } from '../shared/services/alert.service';
+import { CategoriesService } from '../../shared/services/categories.service';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: "app-create-page",
-  templateUrl: "./create-page.component.html",
-  styleUrls: ["./create-page.component.scss"],
+  selector: 'app-create-page',
+  templateUrl: './create-page.component.html',
+  styleUrls: ['./create-page.component.scss'],
 })
 export class CreatePageComponent implements OnInit, OnDestroy {
   form: FormGroup;
@@ -50,7 +50,7 @@ export class CreatePageComponent implements OnInit, OnDestroy {
 
     this.postsService.create(post).subscribe(() => {
       this.form.reset();
-      this.alertService.success("Post was created!");
+      this.alertService.success('Post was created!');
     });
   }
 

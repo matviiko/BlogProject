@@ -1,8 +1,8 @@
-import { Pipe, PipeTransform } from "@angular/core";
-import { Post } from "../interfaces";
+import { Pipe, PipeTransform } from '@angular/core';
+import { Post } from '../interfaces';
 
 @Pipe({
-  name: "counterPosts",
+  name: 'counterPosts',
 })
 export class CounterPostsPipe implements PipeTransform {
   transform(posts: Post[], idCategory: string): number {

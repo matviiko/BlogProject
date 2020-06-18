@@ -1,20 +1,20 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Category } from "../../shared/interfaces";
-import { CategoriesService } from "../../shared/services/categories.service";
-import { AlertService } from "../shared/services/alert.service";
-import { Subscription } from "rxjs";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Category } from '../../shared/interfaces';
+import { CategoriesService } from '../../shared/services/categories.service';
+import { AlertService } from '../shared/services/alert.service';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: "app-categories-page",
-  templateUrl: "./categories-page.component.html",
-  styleUrls: ["./categories-page.component.scss"],
+  selector: 'app-categories-page',
+  templateUrl: './categories-page.component.html',
+  styleUrls: ['./categories-page.component.scss'],
 })
 export class CategoriesPageComponent implements OnInit, OnDestroy {
   form: FormGroup;
   categories: Category[] = [];
   categoriesSub: Subscription;
-  searchStr = "";
+  searchStr = '';
   deleteSub: Subscription;
   updateSub: Subscription;
   editSub: Subscription;
@@ -44,14 +44,14 @@ export class CategoriesPageComponent implements OnInit, OnDestroy {
     this.categoriesService.create(category).subscribe(() => {
       this.form.reset();
       this.categories.push(category);
-      this.alertService.success("Post was created!");
+      this.alertService.success('Post was created!');
     });
   }
 
   removeCategory(id: string) {
     this.deleteSub = this.categoriesService.remove(id).subscribe(() => {
       this.categories = this.categories.filter(category => category.id !== id);
-      this.alertService.danger("Category was deleted!");
+      this.alertService.danger('Category was deleted!');
     });
   }
 

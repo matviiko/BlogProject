@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { User } from "../../shared/interfaces";
-import { AuthService } from "../shared/services/auth.service";
-import { ActivatedRoute, Params, Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from '../../shared/interfaces';
+import { AuthService } from '../shared/services/auth.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  selector: "app-login-page",
-  templateUrl: "./login-page.component.html",
-  styleUrls: ["./login-page.component.scss"],
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent implements OnInit {
   form: FormGroup;
@@ -18,8 +18,8 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      if (params["LoginAgain"]) {
-        this.message = "Login please";
+      if (params['LoginAgain']) {
+        this.message = 'Login please';
       }
     });
 
@@ -44,7 +44,7 @@ export class LoginPageComponent implements OnInit {
     this.authService.login(user).subscribe(
       () => {
         this.form.reset();
-        this.router.navigate(["/admin", "dashboard"]);
+        this.router.navigate(['/admin', 'dashboard']);
         this.submitted = false;
       },
       () => {

@@ -1,11 +1,11 @@
-import { Pipe, PipeTransform } from "@angular/core";
-import { Post } from "../../../shared/interfaces";
+import { Pipe, PipeTransform } from '@angular/core';
+import { Post } from '../../../shared/interfaces';
 
 @Pipe({
-  name: "searchPostsAuthor",
+  name: 'searchPostsAuthor',
 })
 export class SearchAuthorPipe implements PipeTransform {
-  transform(posts: Post[], search = ""): Post[] {
+  transform(posts: Post[], search = ''): Post[] {
     if (!search.trim()) {
       return posts;
     }

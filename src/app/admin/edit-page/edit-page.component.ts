@@ -1,17 +1,17 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
-import { PostsService } from "../../shared/post.service";
-import { switchMap } from "rxjs/operators";
-import { Category, Post } from "../../shared/interfaces";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Subscription } from "rxjs";
-import { AlertService } from "../shared/services/alert.service";
-import { CategoriesService } from "../../shared/services/categories.service";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { PostsService } from '../../shared/post.service';
+import { switchMap } from 'rxjs/operators';
+import { Category, Post } from '../../shared/interfaces';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { AlertService } from '../shared/services/alert.service';
+import { CategoriesService } from '../../shared/services/categories.service';
 
 @Component({
-  selector: "app-edit-page",
-  templateUrl: "./edit-page.component.html",
-  styleUrls: ["./edit-page.component.scss"],
+  selector: 'app-edit-page',
+  templateUrl: './edit-page.component.html',
+  styleUrls: ['./edit-page.component.scss'],
 })
 export class EditPageComponent implements OnInit, OnDestroy {
   form: FormGroup;
@@ -36,7 +36,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
     this.activatedRoute.params
       .pipe(
         switchMap((params: Params) => {
-          return this.postsService.getPostByID(params["id"]);
+          return this.postsService.getPostByID(params['id']);
         })
       )
       .subscribe((post: Post) => {
@@ -67,7 +67,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
       })
       .subscribe(() => {
         this.submitted = false;
-        this.alertService.success("Post was changed!");
+        this.alertService.success('Post was changed!');
       });
   }
 

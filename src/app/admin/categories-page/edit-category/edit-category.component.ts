@@ -1,16 +1,16 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute, Params, Router } from "@angular/router";
-import { switchMap } from "rxjs/operators";
-import { CategoriesService } from "../../../shared/services/categories.service";
-import { Category } from "../../../shared/interfaces";
-import { Subscription } from "rxjs";
-import { AlertService } from "../../shared/services/alert.service";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { CategoriesService } from '../../../shared/services/categories.service';
+import { Category } from '../../../shared/interfaces';
+import { Subscription } from 'rxjs';
+import { AlertService } from '../../shared/services/alert.service';
 
 @Component({
-  selector: "app-edit-category",
-  templateUrl: "./edit-category.component.html",
-  styleUrls: ["./edit-category.component.scss"],
+  selector: 'app-edit-category',
+  templateUrl: './edit-category.component.html',
+  styleUrls: ['./edit-category.component.scss'],
 })
 export class EditCategoryComponent implements OnInit, OnDestroy {
   editForm: FormGroup;
@@ -28,7 +28,7 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
     this.route.params
       .pipe(
         switchMap((params: Params) => {
-          return this.categoriesService.getCategoryById(params["id"]);
+          return this.categoriesService.getCategoryById(params['id']);
         })
       )
       .subscribe((category: Category) => {
@@ -46,8 +46,8 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
         name: this.editForm.value.nameEditCategory,
       })
       .subscribe(() => {
-        this.alertService.success("Category was changed!");
-        this.router.navigate(["admin", "categories"]);
+        this.alertService.success('Category was changed!');
+        this.router.navigate(['admin', 'categories']);
       });
   }
 
