@@ -1,10 +1,10 @@
 .sidebar {
-  margin: 40px 15px;
+  margin: 40px 0;
   background: #ffffff;
   height: 100%;
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 100%;
 }
 
 .search {
@@ -80,17 +80,16 @@
   flex-direction: row;
   margin: 20px 30px;
   img {
-    height: 55px;
-    width: 75px;
+    height: 30%;
+    width: 30%;
   }
   div {
     margin-left: 5px;
     .title {
       font-family: Montserrat Regular, sans-serif;
-      font-size: 16px;
+      font-size: 10px;
       color: #212121;
       white-space: pre-wrap;
-      height: 40px;
       margin: 0 0 0 0;
       padding: 0;
       line-height: 110%;
@@ -100,26 +99,10 @@
       flex-direction: row;
       span {
         font-family: Hind Light, sans-serif;
-        font-size: 14px;
+        font-size: 10px;
         color: #999999;
-        margin-right: 20px;
+        margin-right: 10px;
       }
     }
-  }
-}
-
-.poster {
-  img {
-    height: 600px;
-    width: 300px;
-    margin: 20px 20px;
-  }
-}
-
-.poster-next {
-  img {
-    height: 250px;
-    width: 300px;
-    margin: 20px 20px;
   }
 }

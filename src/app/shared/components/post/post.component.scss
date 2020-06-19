@@ -7,7 +7,8 @@
   margin: 40px 0;
   .img-icon {
     position: absolute;
-    left: 480px; bottom: -18px;
+    left: 50%;
+    bottom: -18px;
     background: #212121;
     height: 35px;
     width: 40px;
@@ -19,8 +20,8 @@
     }
   }
   img {
-    width: 1000px;
-    height: 550px;
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -29,12 +30,12 @@
   justify-content: center;
   a {
     text-decoration: none;
-    font-family: Hind , sans-serif;
+    font-family: Hind, sans-serif;
     font-size: 16px;
     color: #999999;
     align-items: center;
     margin: 10px 10px;
-  };
+  }
 }
 
 .post-title {
@@ -80,7 +81,6 @@
     font-size: 16px;
     text-align: center;
     color: #464646;
-
   }
 }
 

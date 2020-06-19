@@ -12,8 +12,8 @@
       </button>
     </div>
   </div>
-  <div class="poster">
-    <img src="./assets/image/poster.jpg" alt="" />
+  <div>
+    <img class="img-fluid" src="./assets/image/poster.jpg" alt="" />
   </div>
   <div class="sidebar-categories">
     <h4>CATEGORIES</h4>
@@ -33,20 +33,20 @@
       </div>
     </ng-template>
   </div>
-  <div class="poster-next">
-    <img src="./assets/image/angular.png" />
+  <div>
+    <img class="img-fluid" src="./assets/image/boostrap-4.png" />
   </div>
   <div class="sidebar-posts">
     <h4>LATEST POST</h4>
     <div *ngFor="let post of posts" class="sidebar-post">
-      <img src="{{ post.img }}" />
+      <img class="img-fluid" src="{{ post.img }}" />
       <div>
         <div class="title">
           <span>{{ post.title | maxLength: 31 | uppercase }}</span>
         </div>
         <div class="sidebar-post-footer">
-          <span>{{ post.date | date: "LLL. d yyyy" | uppercase }}</span>
-          <span>{{ "Like 5" | uppercase }}</span>
+          <span>{{ post.date | date: 'LLL. d yyyy' | uppercase }}</span>
+          <span>{{ 'Like 5' | uppercase }}</span>
         </div>
       </div>
     </div>
