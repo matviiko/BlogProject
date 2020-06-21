@@ -6,7 +6,7 @@
 }
 
 .post {
-  width: 1000px;
+  width: 100%;
   background: #ffffff;
 }
 .post-img {
@@ -14,7 +14,7 @@
   margin: 40px 0;
   .img-icon {
     position: absolute;
-    left: 480px;
+    left: 50%;
     bottom: -18px;
     background: #212121;
     height: 35px;
@@ -27,8 +27,8 @@
     }
   }
   img {
-    width: 1000px;
-    height: 550px;
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -129,14 +129,7 @@
       font-size: 15px;
     }
   }
-  .post-rating {
-    small {
-      font-family: Hind Regular, sans-serif;
-      font-size: 16px;
-      color: #999999;
-      text-transform: uppercase;
-    }
-  }
+
   .post-footer-right {
     a {
       text-decoration: none;
