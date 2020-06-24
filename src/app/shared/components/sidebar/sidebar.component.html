@@ -22,7 +22,7 @@
         <span
           ><a [routerLink]="['/category', category.id]">{{ category.name | uppercase }}</a></span
         >
-        <span *ngIf="posts$ | async as posts">{{ posts | counterPosts: category.id }}</span>
+        <span>{{ posts | counterPosts: category.id }}</span>
       </li>
     </ul>
     <ng-template #loading>
