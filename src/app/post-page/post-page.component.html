@@ -1,7 +1,7 @@
 <div *ngIf="post$ | async as post; else loading">
   <div class="post">
     <div class="post-img">
-      <img src="{{ post.img }}" />
+      <img alt="Post image" src="{{ post.img }}" />
       <div class="img-icon">
         <svg focusable="false" data-prefix="fas" data-icon="image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
@@ -190,3 +190,6 @@
 <!--    </svg>-->
 <!--  </div>-->
 <!--</div>-->
+
+<app-comment></app-comment>
+<app-comment></app-comment>
