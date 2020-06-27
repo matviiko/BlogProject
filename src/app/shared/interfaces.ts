@@ -21,6 +21,7 @@ export interface Post {
   title: string;
   categories: Array<string>;
   user: string;
+  comments?: Array<Object> | Object;
   img?: string;
   aboutPost?: string;
   text: string;
@@ -36,5 +37,12 @@ export interface Category {
   id?: string;
   name: string;
   user?: string;
+  date: Date;
+}
+
+export interface Comment {
+  id?: string;
+  user: string;
+  comment: string;
   date: Date;
 }
