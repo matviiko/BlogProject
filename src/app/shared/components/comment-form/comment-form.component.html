@@ -1,0 +1,19 @@
+<div *ngIf="authService.isAuthenticated()">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="container-fluid form">
+    <div class="form-group">
+      <label for="title">Your Comment</label>
+      <textarea
+        [ngClass]="{ 'is-invalid': form.get('comment').invalid && form.get('comment').touched }"
+        id="title"
+        class="form-control"
+        formControlName="comment"
+      ></textarea>
+      <div class="invalid-feedback" *ngIf="form.get('comment').invalid && form.get('comment').touched">
+        <p *ngIf="form.get('comment').errors.required">Enter comment</p>
+      </div>
+    </div>
+    <button class="btn btn-block btn-dark" type="submit" [disabled]="form.invalid">
+      Post Comment
+    </button>
+  </form>
+</div>
