@@ -16,6 +16,8 @@ import { AlertComponent } from './shared/components/alert/alert.component';
 import { AlertService } from './shared/services/alert.service';
 import { CategoriesPageComponent } from './categories-page/categories-page.component';
 import { EditCategoryComponent } from './categories-page/edit-category/edit-category.component';
+import { SingupPageComponent } from './singup-page/singup-page.component';
+import { SettingsProfilePageComponent } from './settings-profile-page/settings-profile-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { EditCategoryComponent } from './categories-page/edit-category/edit-cate
     AlertComponent,
     CategoriesPageComponent,
     EditCategoryComponent,
+    SingupPageComponent,
+    SettingsProfilePageComponent,
   ],
   imports: [
     CommonModule,
@@ -42,11 +46,13 @@ import { EditCategoryComponent } from './categories-page/edit-category/edit-cate
         children: [
           { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
           { path: 'login', component: LoginPageComponent },
+          { path: 'register-user', component: SingupPageComponent },
           { path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard] },
           { path: 'categories', component: CategoriesPageComponent, canActivate: [AuthGuard] },
           { path: 'category/:id/edit', component: EditCategoryComponent, canActivate: [AuthGuard] },
           { path: 'create', component: CreatePageComponent, canActivate: [AuthGuard] },
           { path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard] },
+          { path: 'settings/:id', component: SettingsProfilePageComponent, canActivate: [AuthGuard] },
         ],
       },
     ]),

@@ -4,15 +4,23 @@ export interface User {
   returnSecureToken?: boolean;
 }
 
+export interface fbUserResponse {
+  uid: string;
+  email: string;
+}
+
 export interface fbAuthResponse {
   idToken: string;
   expiresIn: string;
+  localId: string;
+  email: string;
 }
 
 export interface Post {
   id?: string;
   title: string;
   categories: Array<string>;
+  user: string;
   img?: string;
   aboutPost?: string;
   text: string;

@@ -46,6 +46,7 @@ export class CreatePageComponent implements OnInit, OnDestroy {
       text: this.form.value.text,
       author: this.form.value.author,
       date: new Date(),
+      user: localStorage.getItem('uid'),
     };
 
     this.postsService.create(post).subscribe(() => {

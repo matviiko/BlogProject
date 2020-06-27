@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
-import { User } from '../../shared/interfaces';
+import { fbAuthResponse, fbUserResponse, User } from '../../shared/interfaces';
 import { AlertService } from '../shared/services/alert.service';
 import { MustMatch } from '../shared/must-match.validator';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-singup-page',
@@ -15,6 +16,7 @@ export class SingupPageComponent implements OnInit {
   form: FormGroup;
   submitted = false;
   message: string;
+  responseUser: fbUserResponse;
 
   constructor(public authService: AuthService, private router: Router, private alert: AlertService, private formBuilder: FormBuilder) {}
 
@@ -43,16 +45,27 @@ export class SingupPageComponent implements OnInit {
       password: this.form.value.password,
     };
 
-    this.authService.register(user).subscribe(
-      () => {
-        this.form.reset();
-        this.alert.success('Registration Successful. Please Login');
-        this.router.navigate(['/admin', 'login']);
-        this.submitted = false;
-      },
-      () => {
-        this.submitted = false;
-      }
-    );
+    this.authService
+      .register(user)
+      .pipe(
+        tap((response: fbAuthResponse) => {
+          this.responseUser = {
+            uid: response.localId,
+            email: response.email,
+          };
+        })
+      )
+      .subscribe(
+        () => {
+          this.form.reset();
+          this.authService.createUser(this.responseUser).subscribe();
+          this.alert.success('Registration Successful. Please Login');
+          this.router.navigate(['/admin', 'dashboard']);
+          this.submitted = false;
+        },
+        () => {
+          this.submitted = false;
+        }
+      );
   }
 }
