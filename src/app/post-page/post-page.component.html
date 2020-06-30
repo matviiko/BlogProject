@@ -190,6 +190,11 @@
 <!--    </svg>-->
 <!--  </div>-->
 <!--</div>-->
+<div *ngIf="post$ | async as post; else noComment">
+  <app-comment *ngFor="let comment of post.comments | keyvalue" [comment]="comment.value"> </app-comment>
+</div>
 
-<app-comment></app-comment>
-<app-comment></app-comment>
+<ng-template #noComment>
+  <p>No Comments...</p>
+</ng-template>
+<app-comment-form [id]="idPost"></app-comment-form>

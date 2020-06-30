@@ -4,6 +4,7 @@ import { PostsService } from '../shared/post.service';
 import { Observable } from 'rxjs';
 import { Post } from '../shared/interfaces';
 import { switchMap } from 'rxjs/operators';
+import { CommentService } from '../shared/services/comment.service';
 
 @Component({
   selector: 'app-post-page',
@@ -12,8 +13,9 @@ import { switchMap } from 'rxjs/operators';
 })
 export class PostPageComponent implements OnInit {
   post$: Observable<Post>;
+  idPost = '';
 
-  constructor(private activatedRoute: ActivatedRoute, private postsService: PostsService) {}
+  constructor(private activatedRoute: ActivatedRoute, private commentService: CommentService, private postsService: PostsService) {}
 
   ngOnInit() {
     this.post$ = this.activatedRoute.params.pipe(
@@ -21,5 +23,7 @@ export class PostPageComponent implements OnInit {
         return this.postsService.getPostByID(params['id']);
       })
     );
+
+    this.idPost = this.activatedRoute.snapshot.params.id;
   }
 }
