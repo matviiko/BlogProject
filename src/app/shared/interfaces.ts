@@ -46,3 +46,8 @@ export interface Comment {
   comment: string;
   date: Date;
 }
+
+export interface ProfileUser {
+  uid: string;
+  email: string;
+}

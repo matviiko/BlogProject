@@ -4,6 +4,8 @@ import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng
 import { QuillModule } from 'ngx-quill';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { FilterCategoryPipe } from './pipes/filter-category.pipe';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -11,7 +13,6 @@ import { CounterPostsPipe } from './pipes/counter-posts.pipe';
 import { MaxLengthPipe } from './pipes/max-length.pipe';
 import { CommentComponent } from './components/comment/comment.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     QuillModule.forRoot(),
     CommonModule,
     RouterModule,
+    FontAwesomeModule,
     ReactiveFormsModule,
   ],
   exports: [HttpClientModule, QuillModule, FilterCategoryPipe, SidebarComponent, CommentComponent, CommentFormComponent],
