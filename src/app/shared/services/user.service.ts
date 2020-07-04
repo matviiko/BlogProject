@@ -16,8 +16,13 @@ export class UserService {
       map((response: { [key: string]: any }) => {
         return Object.keys(response).map(key => ({
           ...response[key],
+          id: key,
         }));
       })
     );
+  }
+
+  update(profile: ProfileUser): Observable<ProfileUser> {
+    return this.http.patch<ProfileUser>(`${environment.fbDbUrl}/users/${profile.id}.json`, profile);
   }
 }

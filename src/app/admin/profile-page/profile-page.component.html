@@ -4,56 +4,51 @@
   </div>
 
   <div class="pd-20 col-9">
-    <div class="vd_info"><a class="btn btn-outline-warning"> Edit </a></div>
+    <div class="vd_info" *ngIf="user">
+      <button class="btn btn-outline-warning" [routerLink]="['/admin', 'user', user.uid, 'edit']">Edit</button>
+    </div>
     <h3 class="mgbt-xs-15">ABOUT</h3>
 
     <div class="row" *ngIf="user">
       <div class="col-sm-6">
         <div class="row mgbt-xs-0">
           <label class="col-xs-5 control-label">First Name:</label>
-          <div class="col-xs-7 controls">Mariah</div>
+          <div class="col-xs-7 controls">{{ user.firstName }}</div>
         </div>
       </div>
+
       <div class="col-sm-6">
         <div class="row mgbt-xs-0">
           <label class="col-xs-5 control-label">Last Name:</label>
-          <div class="col-xs-7 controls">Caraiban</div>
+          <div class="col-xs-7 controls">{{ user.lastName }}</div>
         </div>
       </div>
+
       <div class="col-sm-6">
         <div class="row mgbt-xs-0">
           <label class="col-xs-5 control-label">User Name:</label>
-          <div class="col-xs-7 controls">Mariah</div>
+          <div class="col-xs-7 controls">{{ user.username }}</div>
         </div>
       </div>
+
       <div class="col-sm-6">
         <div class="row mgbt-xs-0">
           <label class="col-xs-5 control-label">Email:</label>
           <div class="col-xs-7 controls">{{ user.email }}</div>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="row mgbt-xs-0">
-          <label class="col-xs-5 control-label">City:</label>
-          <div class="col-xs-7 controls">Los Angeles</div>
-        </div>
-      </div>
+
       <div class="col-sm-6">
         <div class="row mgbt-xs-0">
           <label class="col-xs-5 control-label">Country:</label>
-          <div class="col-xs-7 controls">United States</div>
+          <div class="col-xs-7 controls">{{ user.country }}</div>
         </div>
       </div>
+
       <div class="col-sm-6">
         <div class="row mgbt-xs-0">
           <label class="col-xs-5 control-label">Birthday:</label>
-          <div class="col-xs-7 controls">Jan 22, 1984</div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="row mgbt-xs-0">
-          <label class="col-xs-5 control-label">Interests:</label>
-          <div class="col-xs-7 controls">Basketball, Web, Design, etc.</div>
+          <div class="col-xs-7 controls">{{ user.birthday }}</div>
         </div>
       </div>
     </div>

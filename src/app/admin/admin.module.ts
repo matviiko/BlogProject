@@ -19,6 +19,7 @@ import { EditCategoryComponent } from './categories-page/edit-category/edit-cate
 import { SingupPageComponent } from './singup-page/singup-page.component';
 import { SettingsProfilePageComponent } from './settings-profile-page/settings-profile-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { EditProfileComponent } from './profile-page/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     SingupPageComponent,
     SettingsProfilePageComponent,
     ProfilePageComponent,
+    EditProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +58,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
           { path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard] },
           { path: 'settings/:id', component: SettingsProfilePageComponent, canActivate: [AuthGuard] },
           { path: 'user/:id', component: ProfilePageComponent, canActivate: [AuthGuard] },
+          { path: 'user/:id/edit', component: EditProfileComponent, canActivate: [AuthGuard] },
         ],
       },
     ]),

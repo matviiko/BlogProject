@@ -50,4 +50,10 @@ export interface Comment {
 export interface ProfileUser {
   uid: string;
   email: string;
+  username?: string;
+  firstName?: string;
+  lastName?: string;
+  birthday?: Date;
+  country?: string;
+  id?: string;
 }
