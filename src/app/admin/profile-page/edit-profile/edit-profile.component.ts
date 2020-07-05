@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../shared/services/user.service';
 import { ProfileUser } from '../../../shared/interfaces';
@@ -12,8 +12,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent implements OnInit, OnDestroy {
+  @ViewChild('input') InputRef: ElementRef;
   form: FormGroup;
   user: ProfileUser;
+  logo: File;
+  imagePreview: any = '';
   date: Date = new Date();
   updateSub: Subscription;
 
@@ -44,6 +47,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
         email: this.form.value.email,
         birthday: this.form.value.birthday,
         country: this.form.value.country,
+        logoSrc: this.imagePreview,
       })
       .subscribe(() => {
         this.alertService.success('You profile was changed');
@@ -55,5 +59,21 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     if (this.updateSub) {
       this.updateSub.unsubscribe();
     }
+  }
+
+  triggerClick() {
+    this.InputRef.nativeElement.click();
+  }
+
+  onFileUpload(event: any) {
+    const file = event.target.files[0];
+    this.logo = file;
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.imagePreview = reader.result;
+    };
+
+    reader.readAsDataURL(file);
   }
 }

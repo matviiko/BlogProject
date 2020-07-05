@@ -1,4 +1,9 @@
 <form class="form" [formGroup]="form" (ngSubmit)="submit()" *ngIf="form">
+  <input class="dn" (change)="onFileUpload($event)" type="file" #input />
+  <button [disabled]="form.disabled" (click)="triggerClick()" class="btn btn-outline-dark logo-btn col-4" type="button">Upload Logo</button>
+  <div class="col-4"></div>
+  <img class="img-fluid col-4" alt="Logo" *ngIf="imagePreview" [src]="imagePreview" />
+
   <div class="form-group">
     <label for="firstName">First Name:</label>
     <input

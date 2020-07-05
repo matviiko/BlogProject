@@ -1,8 +1,8 @@
-<div class="comment">
-  <img class="img-fluid col-3" alt="" src="./assets/image/boostrap-4.png" />
+<div *ngIf="user" class="comment">
+  <img class="img-fluid col-3" alt="Logo user" [src]="user.logoSrc" />
   <div class="col-9">
     <div class="comment-title">
-      <span>{{ comment.user | uppercase }}</span>
+      <span>{{ user.firstName | uppercase }} {{ user.lastName | uppercase }}</span>
       <span id="date">{{ comment.date | date: 'd MMM yyyy' }}</span>
     </div>
     <div class="comment-main">

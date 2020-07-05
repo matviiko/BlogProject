@@ -1,9 +1,9 @@
 <div class="profile row">
-  <div class="logo col-3">
-    <img class="img-thumbnail img" src="./assets/image/boostrap-4.png" alt="logo_img" />
+  <div class="logo col-4">
+    <img class="img-thumbnail img" *ngIf="user" [src]="user.logoSrc" alt="logo_img" />
   </div>
 
-  <div class="pd-20 col-9">
+  <div class="pd-20 col-8">
     <div class="vd_info" *ngIf="user">
       <button class="btn btn-outline-warning" [routerLink]="['/admin', 'user', user.uid, 'edit']">Edit</button>
     </div>
@@ -11,44 +11,59 @@
 
     <div class="row" *ngIf="user">
       <div class="col-sm-6">
-        <div class="row mgbt-xs-0">
+        <div class="row mgbt-xs-0 col-item">
           <label class="col-xs-5 control-label">First Name:</label>
-          <div class="col-xs-7 controls">{{ user.firstName }}</div>
+          <div class="col-xs-7 controls" *ngIf="user.firstName; else firstName">{{ user.firstName }}</div>
+          <ng-template #firstName>
+            <div class="col-xs-7 controls">Your First Name not found</div>
+          </ng-template>
         </div>
       </div>
 
       <div class="col-sm-6">
-        <div class="row mgbt-xs-0">
+        <div class="row mgbt-xs-0 col-item">
           <label class="col-xs-5 control-label">Last Name:</label>
-          <div class="col-xs-7 controls">{{ user.lastName }}</div>
+          <div class="col-xs-7 controls" *ngIf="user.lastName; else lastName">{{ user.lastName }}</div>
+          <ng-template #lastName>
+            <div class="col-xs-7 controls">Your Last Name not found</div>
+          </ng-template>
         </div>
       </div>
 
       <div class="col-sm-6">
         <div class="row mgbt-xs-0">
-          <label class="col-xs-5 control-label">User Name:</label>
-          <div class="col-xs-7 controls">{{ user.username }}</div>
+          <label class="col-xs-5 control-label col-item">User Name:</label>
+          <div class="col-xs-7 controls" *ngIf="user.username; else userName">{{ user.username }}</div>
+          <ng-template #userName>
+            <div class="col-xs-7 controls">Username not found</div>
+          </ng-template>
         </div>
       </div>
 
       <div class="col-sm-6">
-        <div class="row mgbt-xs-0">
+        <div class="row mgbt-xs-0 col-item">
           <label class="col-xs-5 control-label">Email:</label>
           <div class="col-xs-7 controls">{{ user.email }}</div>
         </div>
       </div>
 
       <div class="col-sm-6">
-        <div class="row mgbt-xs-0">
+        <div class="row mgbt-xs-0 col-item">
           <label class="col-xs-5 control-label">Country:</label>
-          <div class="col-xs-7 controls">{{ user.country }}</div>
+          <div class="col-xs-7 controls" *ngIf="user.country; else country">{{ user.country }}</div>
+          <ng-template #country>
+            <div class="col-xs-7 controls">Your country not found</div>
+          </ng-template>
         </div>
       </div>
 
       <div class="col-sm-6">
-        <div class="row mgbt-xs-0">
+        <div class="row mgbt-xs-0 col-item">
           <label class="col-xs-5 control-label">Birthday:</label>
-          <div class="col-xs-7 controls">{{ user.birthday }}</div>
+          <div class="col-xs-7 controls" *ngIf="user.birthday; else birthday">{{ user.birthday }}</div>
+          <ng-template #birthday>
+            <div class="col-xs-7 controls">Birthday not found</div>
+          </ng-template>
         </div>
       </div>
     </div>
