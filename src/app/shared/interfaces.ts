@@ -21,7 +21,7 @@ export interface Post {
   title: string;
   categories: Array<string>;
   user: string;
-  comments?: Array<Object> | Object;
+  comments?: object;
   img?: string;
   aboutPost?: string;
   text: string;

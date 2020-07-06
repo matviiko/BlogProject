@@ -75,5 +75,6 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     };
 
     reader.readAsDataURL(file);
+    console.log(reader);
   }
 }

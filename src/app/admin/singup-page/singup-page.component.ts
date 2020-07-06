@@ -59,7 +59,7 @@ export class SingupPageComponent implements OnInit {
         () => {
           this.form.reset();
           this.authService.createUser(this.responseUser).subscribe();
-          this.alert.success('Registration Successful. Please Login');
+          this.alert.success('Registration Successful');
           this.router.navigate(['/admin', 'dashboard']);
           this.submitted = false;
         },

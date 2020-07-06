@@ -8,14 +8,19 @@ import { Post } from '../../interfaces';
 })
 export class PostComponent implements OnInit {
   @Input() post: Post;
-
   imgPost = './assets/image/image-analysis.png';
-
+  counterComments: string | number;
   constructor() {}
 
   ngOnInit() {
     if (this.post.img) {
       this.imgPost = this.post.img;
+    }
+
+    if (this.post.comments === undefined) {
+      this.counterComments = 'NO';
+    } else {
+      this.counterComments = Object.keys(this.post.comments).length;
     }
   }
 }
