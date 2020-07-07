@@ -132,3 +132,13 @@ h3 {
   padding: 0 40px;
   margin: 0 10px;
 }
+
+button.menu {
+  background: #343a40;
+  color: #ffffff;
+  border: none;
+}
+
+button :focus {
+  outline: none;
+}

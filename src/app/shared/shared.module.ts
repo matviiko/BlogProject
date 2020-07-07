@@ -13,6 +13,8 @@ import { CounterPostsPipe } from './pipes/counter-posts.pipe';
 import { MaxLengthPipe } from './pipes/max-length.pipe';
 import { CommentComponent } from './components/comment/comment.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -26,7 +28,16 @@ import { CommentFormComponent } from './components/comment-form/comment-form.com
     FontAwesomeModule,
     ReactiveFormsModule,
   ],
-  exports: [HttpClientModule, QuillModule, FilterCategoryPipe, SidebarComponent, CommentComponent, CommentFormComponent],
+  exports: [
+    HttpClientModule,
+    QuillModule,
+    FilterCategoryPipe,
+    SidebarComponent,
+    CommentComponent,
+    CommentFormComponent,
+    MatMenuModule,
+    MatIconModule,
+  ],
   declarations: [FilterCategoryPipe, SidebarComponent, CounterPostsPipe, MaxLengthPipe, CommentComponent, CommentFormComponent],
 })
 export class SharedModule {}

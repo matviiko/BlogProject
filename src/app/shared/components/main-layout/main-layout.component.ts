@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../../post.service';
-import { Post } from '../../interfaces';
+import { Category, Post } from '../../interfaces';
+import { CategoriesService } from '../../services/categories.service';
 
 @Component({
   selector: 'app-main-layout',
@@ -10,12 +11,17 @@ import { Post } from '../../interfaces';
 })
 export class MainLayoutComponent implements OnInit {
   posts: Array<Post> = [];
+  categories: Array<Category>;
 
-  constructor(private postsService: PostsService) {}
+  constructor(private postsService: PostsService, private categoriesService: CategoriesService) {}
 
   ngOnInit() {
     this.postsService.getAll().subscribe(posts => {
       this.posts = posts;
+    });
+
+    this.categoriesService.getAllCategories().subscribe(categories => {
+      this.categories = categories;
     });
   }
 }
