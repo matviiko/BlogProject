@@ -4,6 +4,7 @@ import { Category, Post } from '../../shared/interfaces';
 import { forkJoin, Subscription } from 'rxjs';
 import { AlertService } from '../shared/services/alert.service';
 import { CategoriesService } from '../../shared/services/categories.service';
+import { strict } from 'assert';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -21,7 +22,9 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.joinSub = forkJoin(this.postsService.getAll(), this.categoriesService.getAllCategories()).subscribe(([posts, categories]) => {
-      this.posts = posts;
+      this.posts = posts.filter((post: Post) => {
+        return post.user === localStorage.getItem('uid');
+      });
       this.posts.forEach(post => {
         const categoriesList = [];
         post.categories.forEach(id => {

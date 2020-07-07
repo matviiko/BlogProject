@@ -1,43 +1,38 @@
-<div class="card-body"
-     *ngIf="posts.length; else loading"
->
+<div class="card-body" *ngIf="posts.length; else loading">
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text">POST NAME</span>
     </div>
-    <input type="text" class="form-control" placeholder="Search post..." [(ngModel)]="searchStr">
+    <input type="text" class="form-control" placeholder="Search post..." [(ngModel)]="searchStr" />
   </div>
 
-  <table class="table table-striped ">
+  <table class="table table-striped">
     <thead>
-    <tr class="table-danger">
-      <th scope="col">#</th>
-      <th scope="col">AUTHOR</th>
-      <th scope="col">POST NAME</th>
-      <th scope="col">CATEGORY</th>
-      <th scope="col">DATE</th>
-      <th scope="col">ACTION</th>
-    </tr>
+      <tr class="table-danger">
+        <th scope="col">#</th>
+        <th scope="col">POST NAME</th>
+        <th scope="col">CATEGORY</th>
+        <th scope="col">DATE</th>
+        <th scope="col">ACTION</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let post of posts | searchPosts: searchStr; let idx = index">
-      <td>{{ idx + 1 }}</td>
-      <td>{{ post.author }}</td>
-      <td>{{ post.title }}</td>
-      <td> <span *ngFor="let category of post.categories " class="category" >{{ category.name }}</span></td>
-      <td>{{ post.date | date:'medium' }}</td>
-      <td>
-        <button
-          class="btn btn-dark"
-          [routerLink]="['/admin', 'post', post.id, 'edit']"
-        >
-          Edit
-        </button>
-        <button (click)="remove(post.id)" class="btn btn-danger">
-          Delete
-        </button>
-      </td>
-    </tr>
+      <tr *ngFor="let post of posts | searchPosts: searchStr; let idx = index">
+        <td>{{ idx + 1 }}</td>
+        <td>{{ post.title }}</td>
+        <td>
+          <span *ngFor="let category of post.categories" class="category">{{ category.name }}</span>
+        </td>
+        <td>{{ post.date | date: 'medium' }}</td>
+        <td>
+          <button class="btn btn-dark" [routerLink]="['/admin', 'post', post.id, 'edit']">
+            Edit
+          </button>
+          <button (click)="remove(post.id)" class="btn btn-danger">
+            Delete
+          </button>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -49,4 +44,3 @@
     </div>
   </div>
 </ng-template>
-

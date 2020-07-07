@@ -3,10 +3,10 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item *ngFor="let category of categories">
+    <button mat-menu-item *ngFor="let category of categories" [routerLink]="['/category', category.id]">
       <span>{{ category.name | uppercase }}</span>
     </button>
-    <button mat-menu-item [routerLink]="['/admin', 'login']">
+    <button mat-menu-item [routerLink]="['/admin', 'dashboard']">
       <mat-icon>login</mat-icon>
       <span>LogIn</span>
     </button>

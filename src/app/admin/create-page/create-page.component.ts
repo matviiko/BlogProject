@@ -29,7 +29,6 @@ export class CreatePageComponent implements OnInit, OnDestroy {
       img: new FormControl(null, Validators.required),
       aboutPost: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
-      author: new FormControl(null, Validators.required),
     });
   }
 
@@ -44,7 +43,6 @@ export class CreatePageComponent implements OnInit, OnDestroy {
       categories: this.form.value.categories,
       aboutPost: this.form.value.aboutPost,
       text: this.form.value.text,
-      author: this.form.value.author,
       date: new Date(),
       user: localStorage.getItem('uid'),
     };

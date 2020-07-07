@@ -1,81 +1,58 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   <h1>Create Post</h1>
 
-  <div
-    class="form-group">
+  <div class="form-group">
     <label for="title">Post title:</label>
-    <input [ngClass]="{'is-invalid': form.get('title').invalid && form.get('title').touched}"
-           type="text" id="title" class="form-control" placeholder="Post title" formControlName="title">
-    <div
-      class="invalid-feedback"
-      *ngIf="form.get('title').invalid && form.get('title').touched"
-    >
-      <p *ngIf="form.get('title').errors.required"
-      >Enter name post
-      </p>
+    <input
+      [ngClass]="{ 'is-invalid': form.get('title').invalid && form.get('title').touched }"
+      type="text"
+      id="title"
+      class="form-control"
+      placeholder="Post title"
+      formControlName="title"
+    />
+    <div class="invalid-feedback" *ngIf="form.get('title').invalid && form.get('title').touched">
+      <p *ngIf="form.get('title').errors.required">Enter name post</p>
     </div>
   </div>
 
-  <div
-    class="form-group">
+  <div class="form-group">
     <label for="img">Post image:</label>
-    <input [ngClass]="{'is-invalid': form.get('img').invalid && form.get('img').touched}"
-           type="text" id="img" class="form-control" placeholder="Url image for post" formControlName="img">
-    <div
-      class="invalid-feedback"
-      *ngIf="form.get('img').invalid && form.get('img').touched"
-    >
-      <p *ngIf="form.get('img').errors.required"
-      >Enter image url post
-      </p>
+    <input
+      [ngClass]="{ 'is-invalid': form.get('img').invalid && form.get('img').touched }"
+      type="text"
+      id="img"
+      class="form-control"
+      placeholder="Url image for post"
+      formControlName="img"
+    />
+    <div class="invalid-feedback" *ngIf="form.get('img').invalid && form.get('img').touched">
+      <p *ngIf="form.get('img').errors.required">Enter image url post</p>
     </div>
   </div>
 
   <div class="form-group">
     <label for="category">Category:</label>
     <select multiple class="form-control" id="category" formControlName="categories">
-      <option
-        *ngFor="let category of categories;"
-        [value]="category.id"
-      >{{ category.name }}</option>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
     </select>
   </div>
 
   <div>
     <label>About post:</label>
-    <div class="form-group" >
+    <div class="form-group">
       <quill-editor formControlName="aboutPost"></quill-editor>
     </div>
   </div>
 
   <div>
     <label>Post content:</label>
-      <div class="form-group" >
-        <quill-editor formControlName="text"></quill-editor>
-      </div>
-  </div>
-
-  <div
-    class="form-group">
-    <label for="author">Author post:</label>
-    <input [ngClass]="{'is-invalid': form.get('author').invalid && form.get('author').touched}"
-           type="text" id="author" class="form-control" placeholder="Post title" formControlName="author">
-    <div
-      class="invalid-feedback"
-      *ngIf="form.get('author').invalid && form.get('author').touched"
-    >
-      <p *ngIf="form.get('title').errors.required"
-      >Enter Author post
-      </p>
+    <div class="form-group">
+      <quill-editor formControlName="text"></quill-editor>
     </div>
   </div>
 
-  <button
-    class="btn btn-block btn-dark"
-    type="submit"
-    [disabled]="form.invalid"
-  >
+  <button class="btn btn-block btn-dark" type="submit" [disabled]="form.invalid">
     Create post
   </button>
-
 </form>
