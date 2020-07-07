@@ -25,7 +25,7 @@ export interface Post {
   img?: string;
   aboutPost?: string;
   text: string;
-  author: string;
+  author?: string;
   date: Date;
 }
 

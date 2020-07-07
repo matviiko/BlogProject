@@ -36,9 +36,9 @@
   <div class="d-flex justify-content-center">
     <img class="img-fluid" src="./assets/image/boostrap-4.png" />
   </div>
-  <div class="sidebar-posts">
+  <div *ngIf="latestPosts" class="sidebar-posts">
     <h4>LATEST POST</h4>
-    <div *ngFor="let post of posts" class="sidebar-post">
+    <div *ngFor="let post of latestPosts" class="sidebar-post">
       <img class="img-fluid" src="{{ post.img }}" />
       <div>
         <div class="title">
