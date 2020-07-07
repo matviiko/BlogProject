@@ -6,9 +6,13 @@
     <button mat-menu-item *ngFor="let category of categories" [routerLink]="['/category', category.id]">
       <span>{{ category.name | uppercase }}</span>
     </button>
-    <button mat-menu-item [routerLink]="['/admin', 'dashboard']">
+    <button *ngIf="!authService.isAuthenticated()" mat-menu-item [routerLink]="['/admin', 'login']">
       <mat-icon>login</mat-icon>
       <span>LogIn</span>
+    </button>
+    <button *ngIf="authService.isAuthenticated()" mat-menu-item [routerLink]="['/admin', 'dashboard']">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
     </button>
   </mat-menu>
   <a [routerLink]="['/']"> <img class="logo" alt="logo" src="./assets/image/Deco.png" />BLOG</a>
