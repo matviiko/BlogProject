@@ -1,72 +1,51 @@
-<div class="card-body"
-    *ngIf="categories.length; else loading"
->
-
+<div class="card-body" *ngIf="categories.length; else loading">
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="input-group mb-3">
       <input
-        [ngClass]="{'is-invalid': form.get('name').invalid && form.get('name').touched}"
-        type="text" class="form-control" placeholder="CATEGORY NAME" formControlName="name">
+        [ngClass]="{ 'is-invalid': form.get('name').invalid && form.get('name').touched }"
+        type="text"
+        class="form-control"
+        placeholder="CATEGORY NAME"
+        formControlName="name"
+      />
       <div class="input-group-append">
-        <button
-          class="btn btn-outline-primary"
-          type="submit"
-          [disabled]="form.invalid"
-        >Create Category</button>
+        <button class="btn btn-outline-primary" type="submit" [disabled]="form.invalid">Create Category</button>
       </div>
 
-      <div
-        class="invalid-feedback"
-        *ngIf="form.get('name').invalid && form.get('name').touched"
-      >
-        <p *ngIf="form.get('name').errors.required"
-        >Enter please category name
-        </p>
-        <p *ngIf="form.get('name').errors.maxlength"
-        >You need write {{form.get('name').errors.maxlength.requiredLength}} symbols, you
-          write {{form.get('name').errors.maxlength.actualLength}} symbols
+      <div class="invalid-feedback" *ngIf="form.get('name').invalid && form.get('name').touched">
+        <p *ngIf="form.get('name').errors.required">Enter please category name</p>
+        <p *ngIf="form.get('name').errors.maxlength">
+          You need write {{ form.get('name').errors.maxlength.requiredLength }} symbols, you write
+          {{ form.get('name').errors.maxlength.actualLength }} symbols
         </p>
       </div>
     </div>
   </form>
 
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text">CATEGORY NAME</span>
-    </div>
-    <input type="text" class="form-control" placeholder="Search category..." [(ngModel)]="searchStr">
-  </div>
-
-  <table class="table table-striped ">
+  <table class="table table-striped">
     <thead>
-    <tr class="table-success">
-      <th scope="col">#</th>
-      <th scope="col">CATEGORY NAME</th>
-      <th scope="col">DATE</th>
-      <th scope="col">ACTION</th>
-    </tr>
+      <tr class="table-success">
+        <th scope="col">#</th>
+        <th scope="col">CATEGORY NAME</th>
+        <th scope="col">DATE</th>
+        <th scope="col">ACTION</th>
+      </tr>
     </thead>
     <tbody>
-    <tr
-    *ngFor="let category of categories; let idx = index"
-    >
-      <td>{{ idx + 1 }}</td>
-      <td>{{ category.name }}</td>
-      <td>{{ category.date | date: 'medium' }}</td>
-      <td class="w150">
-        <button
-          (click)="removeCategory(category.id)"
-          class="btn btn-outline-danger action">
-          Delete
-        </button>
+      <tr *ngFor="let category of categories; let idx = index">
+        <td>{{ idx + 1 }}</td>
+        <td>{{ category.name }}</td>
+        <td>{{ category.date | date: 'medium' }}</td>
+        <td class="w150">
+          <button (click)="removeCategory(category.id)" class="btn btn-outline-danger action">
+            Delete
+          </button>
 
-        <button
-          class="btn btn-outline-primary action"
-          [routerLink]="['/admin', 'category', category.id, 'edit']" >
-          Edit
-        </button>
-      </td>
-    </tr>
+          <button class="btn btn-outline-primary action" [routerLink]="['/admin', 'category', category.id, 'edit']">
+            Edit
+          </button>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
