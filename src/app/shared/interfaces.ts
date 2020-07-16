@@ -56,5 +56,5 @@ export interface ProfileUser {
   birthday?: Date;
   country?: string;
   id?: string;
-  logoSrc?: File;
+  logoSrc?: File | string;
 }

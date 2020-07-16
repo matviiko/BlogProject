@@ -1,9 +1,6 @@
 <div class="profile row">
   <div class="logo col-4">
-    <img class="img-thumbnail img" *ngIf="user.logoSrc; else logo" [src]="user.logoSrc" alt="logo_img" />
-    <ng-template #logo>
-      <img class="img-thumbnail img" src="./assets/image/logouser.png" alt="logo_img" />
-    </ng-template>
+    <img class="img-thumbnail img" *ngIf="user" [src]="user.logoSrc" alt="logo_img" />
   </div>
 
   <div class="pd-20 col-8">
