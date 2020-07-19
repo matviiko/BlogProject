@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: #212429;
+}
+
 .loader {
   height: 300px;
   width: 100px;

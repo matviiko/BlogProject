@@ -15,6 +15,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
     RouterModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
   exports: [
     HttpClientModule,

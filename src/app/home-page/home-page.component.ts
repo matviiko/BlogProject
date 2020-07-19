@@ -11,6 +11,8 @@ import { CategoriesService } from '../shared/services/categories.service';
 })
 export class HomePageComponent implements OnInit, OnDestroy {
   posts: Array<Post> = [];
+  totalPosts: number;
+  page: number = 1;
   joinSub: Subscription;
 
   constructor(private postsService: PostsService, private categoriesService: CategoriesService) {}
@@ -18,6 +20,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.joinSub = forkJoin(this.postsService.getAll(), this.categoriesService.getAllCategories()).subscribe(([posts, categories]) => {
       this.posts = posts;
+      this.totalPosts = posts.length;
       this.posts.forEach(post => {
         const categoriesList = [];
         post.categories.forEach(id => {
