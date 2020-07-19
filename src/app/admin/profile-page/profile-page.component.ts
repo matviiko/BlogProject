@@ -16,6 +16,12 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
     this.userService.getAllUsers().subscribe(users => {
       this.user = users.find(user => user.uid === localStorage.getItem('uid'));
+
+      if (this.user.logoSrc) {
+        return this.user.logoSrc;
+      } else {
+        this.user.logoSrc = '.././assets/image/logouser.png';
+      }
     });
   }
 }
