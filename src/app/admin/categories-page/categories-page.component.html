@@ -35,7 +35,7 @@
       <tr *ngFor="let category of categories; let idx = index">
         <td>{{ idx + 1 }}</td>
         <td>{{ category.name }}</td>
-        <td>{{ category.date | date: 'medium' }}</td>
+        <td>{{ category.date | date: 'dd LLL yyyy h:m' }}</td>
         <td class="w150">
           <button (click)="removeCategory(category.id)" class="btn btn-outline-danger action">
             Delete
