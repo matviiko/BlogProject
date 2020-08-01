@@ -30,6 +30,7 @@ export class CreatePageComponent implements OnInit, OnDestroy {
       aboutPost: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
     });
+    console.log(this.form);
   }
 
   submit() {

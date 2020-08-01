@@ -17,7 +17,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   constructor(private postsService: PostsService, private categoriesService: CategoriesService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.joinSub = forkJoin(this.postsService.getAll(), this.categoriesService.getAllCategories()).subscribe(([posts, categories]) => {
       this.posts = posts;
       this.totalPosts = posts.length;
