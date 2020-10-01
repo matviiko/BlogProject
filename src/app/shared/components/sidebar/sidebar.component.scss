@@ -1,7 +1,7 @@
 .sidebar {
   margin: 40px 0;
   background: #ffffff;
-  height: 99%;
+  height: calc(100% - 50px);
   display: flex;
   flex-direction: column;
   width: 100%;
