@@ -15,6 +15,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -23,7 +24,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
 };
 
 @NgModule({
-  declarations: [AppComponent, MainLayoutComponent, HomePageComponent, PostPageComponent, PostComponent, CategoryPageComponent],
+  declarations: [AppComponent, MainLayoutComponent, HomePageComponent, PostPageComponent, PostComponent, CategoryPageComponent, SearchPageComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, SharedModule, NgbCarouselModule, BrowserAnimationsModule, NgxPaginationModule],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent],

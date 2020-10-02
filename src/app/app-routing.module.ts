@@ -4,6 +4,7 @@ import { MainLayoutComponent } from './shared/components/main-layout/main-layout
 import { HomePageComponent } from './home-page/home-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
+import { SearchPageComponent } from "./search-page/search-page.component";
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: '', component: HomePageComponent },
       { path: 'post/:id', component: PostPageComponent },
       { path: 'category/:id', component: CategoryPageComponent },
+      { path: 'search', component: SearchPageComponent },
     ],
   },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },

@@ -5,7 +5,7 @@ import { QuillModule } from 'ngx-quill';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { FilterCategoryPipe } from './pipes/filter-category.pipe';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -18,18 +18,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
-  imports: [
-    HttpClientModule,
-    NgbPaginationModule,
-    NgbAlertModule,
-    NgbModule,
-    QuillModule.forRoot(),
-    CommonModule,
-    RouterModule,
-    FontAwesomeModule,
-    ReactiveFormsModule,
-    NgxPaginationModule,
-  ],
+    imports: [
+        HttpClientModule,
+        NgbPaginationModule,
+        NgbAlertModule,
+        NgbModule,
+        QuillModule.forRoot(),
+        CommonModule,
+        RouterModule,
+        FontAwesomeModule,
+        ReactiveFormsModule,
+        NgxPaginationModule,
+        FormsModule,
+    ],
   exports: [
     HttpClientModule,
     QuillModule,

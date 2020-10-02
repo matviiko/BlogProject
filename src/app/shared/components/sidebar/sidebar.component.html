@@ -1,8 +1,11 @@
 <div class="sidebar">
   <div class="input-group search">
-    <input class="form-control" type="text" placeholder="SEARCH" />
+    <input class="form-control" type="text" placeholder="SEARCH" [(ngModel)]="searchWord"/>
     <div>
-      <button class="btn">
+      <button
+        class="btn"
+        (click)="onSearch()"
+      >
         <svg focusable="false" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
             fill="currentColor"
