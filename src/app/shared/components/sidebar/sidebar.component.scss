@@ -16,6 +16,9 @@
     font-size: 15px;
     font-family: Hind Light, sans-serif;
     color: #212121;
+    &:focus{
+      box-shadow: none;
+    }
   }
   button {
     height: 40px;
@@ -26,6 +29,10 @@
       height: 20px;
       width: 20px;
       color: #ffffff;
+    }
+
+    &:focus{
+      box-shadow: none;
     }
   }
 }

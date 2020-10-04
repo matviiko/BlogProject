@@ -33,5 +33,7 @@ export class SidebarComponent implements OnInit {
         word: this.searchWord
       }
     })
+
+    this.searchWord = ''
   }
 }
